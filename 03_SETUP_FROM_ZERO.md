@@ -124,6 +124,22 @@ Claude Code subscription.
 
 ✅ **Check:** the key exists in your console and a spending limit is visible on the account.
 
+> ⚠️ **Do not `export` this key in your shell.** If `ANTHROPIC_API_KEY` is set as a shell
+> environment variable, Claude Code will use it instead of your Pro/Max/Team subscription —
+> silently switching your coding-assistant usage from "included in subscription" to
+> "billed per token." Keep the key inside `.env` only, loaded by the application at
+> runtime (Step 8). Run `claude /status` any time to confirm which auth method is active —
+> it should say subscription, not API key, while you are doing Claude Code work.
+
+**On using multiple Claude accounts (e.g. a personal Pro plan and a school-issued Pro
+plan):** Claude Code can log into either with `claude /login`, and each account's 5-hour
+usage window is separate, so switching accounts when one is rate-limited is a legitimate
+way to extend a long session. Before routing a personal portfolio project through a
+school-issued account, check your institution's usage terms — Anthropic's own policy
+requires subscription seats to be for the account holder's individual use, but a school
+may layer additional restrictions on top. When in doubt, default to the personal account
+for this project.
+
 ---
 
 ## Step 7 — Create the repository (10 min)
